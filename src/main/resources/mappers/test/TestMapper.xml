@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.wjy.ssm.mapper.TestMapper">
+
+    <select id="test" resultType="java.lang.Integer">
+        SELECT count(*) from t_user
+    </select>
+
+    <update id="testTransaction" >
+        update emp t set t.comm = 1 where t.empno = 7369
+    </update>
+
+    <select id="testPageHelper" resultType="java.util.Map">
+        select * from emp
+    </select>
+</mapper>
