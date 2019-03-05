@@ -21,6 +21,7 @@ public class LoginCacheImpl implements ILoginCache {
 
     @Override
     public void addUser(User user) {
+        user.setTime(System.currentTimeMillis());
         LOGIN_USER_CACHE.put(user.getAccount(), user);
         LOGGER.info("用户：" + user.getAccount() + "，登录成功！");
     }
@@ -33,6 +34,12 @@ public class LoginCacheImpl implements ILoginCache {
 
     @Override
     public User getUser(String account) {
-        return LOGIN_USER_CACHE.get(account);
+        User user = LOGIN_USER_CACHE.get(account);
+        long time = user.getTime();
+        if (System.currentTimeMillis() - time > 1000 * 60 * 30) {
+            return null;
+        } else {
+            return user;
+        }
     }
 }

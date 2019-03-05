@@ -1,6 +1,8 @@
 package com.wjy.ssm.domain;
 
 public class User {
+    private long time;
+
     private Integer userId;
 
     private String userName;
@@ -36,6 +38,14 @@ public class User {
     private String updateDt;
 
     private String deleteDt;
+
+    public long getTime() {
+        return time;
+    }
+
+    public void setTime(long time) {
+        this.time = time;
+    }
 
     public Integer getUserId() {
         return userId;
