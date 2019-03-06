@@ -49,6 +49,7 @@ $(function () {
             success: function (result) {
                 if(result.code == 0) {
                     alert("登录成功");
+                    location.reload(true);
                 } else {
                     alert(result.msg);
                 }

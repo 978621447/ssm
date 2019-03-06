@@ -31,6 +31,8 @@ public class UserController {
         try {
             userService.login(account, pwd);
             Cookie cookie = new Cookie(ILoginCache.COOKIE_TOKEN_NAME, account);
+            cookie.setMaxAge(20*60);
+            cookie.setPath("/");
             response.addCookie(cookie);
         } catch (BusinessException e) {
             return R.error(e.getMessage());

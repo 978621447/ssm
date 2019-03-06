@@ -35,6 +35,4 @@ public class UserServiceImpl implements IUserService {
     private boolean truePwd(User user, String pwd) {
         return user.getPwd().equals(MD5Utils.encrypt(pwd + user.getPwdSalt()));
     }
-
-
 }

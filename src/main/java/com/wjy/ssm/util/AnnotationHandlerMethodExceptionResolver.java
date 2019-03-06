@@ -1,9 +1,4 @@
-package com.wjy.ssm.util; /**
-								* 软件著作权：长安新生（深圳）金融投资有限公司
-								* 
-								* 系统名称：电子签约
-								* 
-								*/
+package com.wjy.ssm.util;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

@@ -35,7 +35,7 @@
 	</bean>
 
 	<bean id="viewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">
-		<property name="prefix" value="/static/" />
+		<property name="prefix" value="/WEB-INF/html/" />
 		<property name="suffix" value=".html" />
 	</bean>
 
