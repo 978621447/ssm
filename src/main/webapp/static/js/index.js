@@ -55,7 +55,7 @@ $(function () {
                 }
             },
             error : function() {
-                alert("异常！");
+                alert("系统异常，请稍后重试！");
             }
         });
     }
@@ -69,6 +69,6 @@ $(function () {
         login();
     });
     $("#signUp").on("click", function () {
-        window.location.href = window.contextPath + "/static/html/signUp.html";
+        window.location.href = window.contextPath + "/route/signUp";
     });
 });

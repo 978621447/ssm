@@ -6,7 +6,7 @@
     http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd">
   <display-name>ssm</display-name>
   <welcome-file-list>
-    <welcome-file>static/html/index.html</welcome-file>
+    <welcome-file>/WEB-INF/html/index.html</welcome-file>
   </welcome-file-list>
   <context-param>
     <param-name>contextConfigLocation</param-name>

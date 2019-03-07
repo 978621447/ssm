@@ -24,6 +24,22 @@ public class RouteController {
         return "index";
     }
 
+    /**
+     * 注册页面路由
+     *
+     * @return signUp
+     */
+    @RequestMapping("/signUp")
+    public String signUp() {
+        return "signUp";
+    }
+
+    /**
+     * 简历页面路由
+     *
+     * @param request HttpServletRequest
+     * @return resume
+     */
     @RequestMapping("/resume")
     public String resume(HttpServletRequest request) {
         User loginUser = getLoginUser(request);

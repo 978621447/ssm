@@ -10,4 +10,6 @@ public interface IUserService {
 
     void login(String account, String pwd);
 
+    void signUp(String account, String pwd);
+
 }
