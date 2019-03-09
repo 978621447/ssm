@@ -1,4 +1,4 @@
-package com.wjy.ssm.domain;
+package com.wjy.ssm.business.domain;
 
 public class User {
     private long time;

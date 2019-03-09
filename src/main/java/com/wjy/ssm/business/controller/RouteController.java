@@ -1,7 +1,7 @@
-package com.wjy.ssm.controller;
+package com.wjy.ssm.business.controller;
 
-import com.wjy.ssm.domain.User;
-import com.wjy.ssm.service.ILoginCache;
+import com.wjy.ssm.business.domain.User;
+import com.wjy.ssm.business.service.ILoginCache;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;

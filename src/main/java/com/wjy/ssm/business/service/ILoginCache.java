@@ -1,6 +1,6 @@
-package com.wjy.ssm.service;
+package com.wjy.ssm.business.service;
 
-import com.wjy.ssm.domain.User;
+import com.wjy.ssm.business.domain.User;
 
 /**
  * @author WangJinYi 2019/3/3 0003

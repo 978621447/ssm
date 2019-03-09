@@ -1,4 +1,4 @@
-package com.wjy.ssm.service;
+package com.wjy.ssm.business.service;
 
 import java.util.Map;
 

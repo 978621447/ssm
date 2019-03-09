@@ -1,8 +1,8 @@
-package com.wjy.ssm.controller;
+package com.wjy.ssm.business.controller;
 
-import com.wjy.ssm.service.ILoginCache;
+import com.wjy.ssm.business.service.ILoginCache;
 import com.wjy.ssm.util.BusinessException;
-import com.wjy.ssm.service.IUserService;
+import com.wjy.ssm.business.service.IUserService;
 import com.wjy.ssm.util.R;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -12,7 +12,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.servlet.http.Cookie;
-import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**

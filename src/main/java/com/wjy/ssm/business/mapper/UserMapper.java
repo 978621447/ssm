@@ -1,7 +1,7 @@
-package com.wjy.ssm.mapper;
+package com.wjy.ssm.business.mapper;
 
 
-import com.wjy.ssm.domain.User;
+import com.wjy.ssm.business.domain.User;
 
 public interface UserMapper {
 

@@ -1,6 +1,6 @@
-package com.wjy.ssm.controller;
+package com.wjy.ssm.business.controller;
 
-import com.wjy.ssm.service.ITestService;
+import com.wjy.ssm.business.service.ITestService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.slf4j.Logger;

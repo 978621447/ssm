@@ -51,7 +51,7 @@
         </property>
     </bean>
     <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
-        <property name="basePackage" value="com.wjy.ssm.mapper" />
+        <property name="basePackage" value="com.wjy.ssm.business.mapper" />
         <property name="sqlSessionFactoryBeanName" value="sqlSessionFactory" />
     </bean>
     <!-- 事务 -->

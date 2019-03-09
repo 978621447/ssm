@@ -1,10 +1,10 @@
-package com.wjy.ssm.service.impl;
+package com.wjy.ssm.business.service.impl;
 
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
-import com.wjy.ssm.mapper.TestMapper;
+import com.wjy.ssm.business.mapper.TestMapper;
 import com.wjy.ssm.util.BusinessException;
-import com.wjy.ssm.service.ITestService;
+import com.wjy.ssm.business.service.ITestService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;

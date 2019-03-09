@@ -1,6 +1,6 @@
-package com.wjy.ssm.service.impl;
+package com.wjy.ssm.business.service.impl;
 
-import com.wjy.ssm.service.ITestService;
+import com.wjy.ssm.business.service.ITestService;
 import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;

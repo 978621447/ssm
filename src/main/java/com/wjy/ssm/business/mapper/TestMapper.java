@@ -1,4 +1,4 @@
-package com.wjy.ssm.mapper;
+package com.wjy.ssm.business.mapper;
 
 import java.util.List;
 import java.util.Map;

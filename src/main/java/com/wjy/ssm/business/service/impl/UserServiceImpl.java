@@ -1,19 +1,16 @@
-package com.wjy.ssm.service.impl;
+package com.wjy.ssm.business.service.impl;
 
-import com.wjy.ssm.domain.User;
-import com.wjy.ssm.service.ILoginCache;
+import com.wjy.ssm.business.domain.User;
+import com.wjy.ssm.business.service.ILoginCache;
 import com.wjy.ssm.util.BusinessException;
-import com.wjy.ssm.mapper.UserMapper;
-import com.wjy.ssm.service.IUserService;
+import com.wjy.ssm.business.mapper.UserMapper;
+import com.wjy.ssm.business.service.IUserService;
 import com.wjy.ssm.util.MD5Utils;
-import com.wjy.ssm.util.StringUtil;
 import com.wjy.ssm.util.TimeUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.util.StringUtils;
 
 import java.time.LocalDateTime;
-import java.util.List;
 import java.util.UUID;
 
 /**

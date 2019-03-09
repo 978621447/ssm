@@ -1,6 +1,6 @@
-package com.wjy.ssm.service.impl;
+package com.wjy.ssm.business.service.impl;
 
-import com.wjy.ssm.service.ITestRedisService;
+import com.wjy.ssm.business.service.ITestRedisService;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;

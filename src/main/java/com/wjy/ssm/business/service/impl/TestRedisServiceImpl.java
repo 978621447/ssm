@@ -1,6 +1,6 @@
-package com.wjy.ssm.service.impl;
+package com.wjy.ssm.business.service.impl;
 
-import com.wjy.ssm.service.ITestRedisService;
+import com.wjy.ssm.business.service.ITestRedisService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;

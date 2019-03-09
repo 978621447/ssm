@@ -26,6 +26,12 @@
     </properties>
 
     <dependencies>
+        <!-- kafka -->
+        <dependency>
+            <groupId>org.apache.kafka</groupId>
+            <artifactId>kafka_2.12</artifactId>
+            <version>2.1.0</version>
+        </dependency>
         <!--Spring, SpringMvc-->
         <dependency>
             <groupId>org.springframework</groupId>
