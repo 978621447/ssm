@@ -1,6 +1,7 @@
 package com.wjy.ssm.business.controller;
 
 import com.wjy.ssm.business.domain.User;
+import com.wjy.ssm.business.service.ILogService;
 import com.wjy.ssm.business.service.ILoginCache;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -18,10 +19,13 @@ public class RouteController {
 
     @Autowired
     private ILoginCache loginCache;
+    @Autowired
+    private ILogService logService;
 
     @RequestMapping("/index")
     public String index() {
-        return "index";
+//        return "index";
+        throw new RuntimeException("====================");
     }
 
     /**
@@ -46,6 +50,7 @@ public class RouteController {
         if (loginUser == null) {
             return "noLogin";
         }
+        logService.viewResumeLog(loginUser);
         return "resume";
     }
 

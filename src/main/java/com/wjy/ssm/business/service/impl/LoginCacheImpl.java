@@ -35,6 +35,9 @@ public class LoginCacheImpl implements ILoginCache {
     @Override
     public User getUser(String account) {
         User user = LOGIN_USER_CACHE.get(account);
+        if (user == null) {
+            return null;
+        }
         long time = user.getTime();
         if (System.currentTimeMillis() - time > 1000 * 60 * 30) {
             return null;

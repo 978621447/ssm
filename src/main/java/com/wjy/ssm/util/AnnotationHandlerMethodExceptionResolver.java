@@ -19,15 +19,14 @@ import java.util.*;
 import java.util.Map.Entry;
 
 /**
- *
- *
- * @author 郑翔
+ * @author WangJinYi 2019/3/10
  */
 public class AnnotationHandlerMethodExceptionResolver
 		extends ExceptionHandlerExceptionResolver {
 
-	private static Logger logger = LoggerFactory
+	private static final Logger LOGGER = LoggerFactory
 			.getLogger(AnnotationHandlerMethodExceptionResolver.class);
+
 	private String defaultErrorView;
 	private Properties exceptionMappings;
 
@@ -43,51 +42,21 @@ public class AnnotationHandlerMethodExceptionResolver
 	protected ModelAndView doResolveHandlerMethodException(
 			HttpServletRequest request, HttpServletResponse response,
 			HandlerMethod handlerMethod, Exception exception) {
-		if (handlerMethod == null) {
-			return null;
-		}
-		Method method = handlerMethod.getMethod();
 		ModelAndView returnValue = super.doResolveHandlerMethodException(
 				request, response, handlerMethod, exception);
+		Method method = handlerMethod.getMethod();
 		ResponseBody responseBodyAnn = AnnotationUtils.findAnnotation(method,
 				ResponseBody.class);
-		if (("XMLHttpRequest".equals(request.getHeader("X-Requested-With")))
-				|| (responseBodyAnn != null)) {
-			try {
-				ModelAndView jsonView = new ModelAndView(
-						new MappingJackson2JsonView());
-				if ((exception instanceof BusinessException)) {
-					BusinessException bexception = (BusinessException) exception;
-					jsonView.addObject("code", bexception.getErrorCode());
-					jsonView.addObject("message", bexception.getMessage());
-					jsonView.addObject("data", new HashMap<Object, Object>());
-				} else {
-					logger.error("异常处理捕获非BusinessException:", exception);
-					jsonView.addObject("code", "99999");
-					jsonView.addObject("message", "系统异常");
-					jsonView.addObject("data", new HashMap<>());
-				}
-				response.setStatus(200);
-				return jsonView;
-			} catch (Exception e) {
-				response.setStatus(200);
-				ModelAndView jsonView = new ModelAndView(
-						new MappingJackson2JsonView());
-				logger.error("异常处理捕获失败:" + Arrays.toString(e.getStackTrace()));
-				jsonView.addObject("code", "99998");
-				jsonView.addObject("message", "系统异常");
-				jsonView.addObject("data", new HashMap<Object, Object>());
-				return jsonView;
-			}
+		if (isAjaxRequest(request, responseBodyAnn)) {
+			response.setStatus(200);
+			return buildAjaxJsonResponse(exception);
 		}
-
 		if (this.exceptionMappings != null) {
 			Set<Entry<Object, Object>> eSet = this.exceptionMappings.entrySet();
 			for (Entry entry : eSet) {
 				if (exception.getClass().getName().equals(entry.getKey())) {
 					Map param = new HashMap();
 					String errorMsg = exception.getMessage();
-
 					if (StringUtils.isEmpty(errorMsg)) {
 						errorMsg = "系统异常！";
 					}
@@ -97,7 +66,7 @@ public class AnnotationHandlerMethodExceptionResolver
 					} catch (UnsupportedEncodingException e) {
 						e.printStackTrace();
 					}
-					logger.error("系统捕获" + entry.getKey() + ":" + errorMsg);
+					LOGGER.error("系统捕获" + entry.getKey() + ":" + errorMsg);
 					returnValue = new ModelAndView(entry.getValue().toString(),
 							param);
 					break;
@@ -117,6 +86,27 @@ public class AnnotationHandlerMethodExceptionResolver
 		}
 
 		return returnValue;
+	}
+
+	private ModelAndView buildAjaxJsonResponse(Exception exception) {
+		ModelAndView jsonView = new ModelAndView(
+                new MappingJackson2JsonView());
+		if ((exception instanceof BusinessException)) {
+            BusinessException busException = (BusinessException) exception;
+            jsonView.addObject("code", busException.getErrorCode());
+            jsonView.addObject("message", busException.getMessage());
+            jsonView.addObject("data", new HashMap<>());
+        } else {
+            LOGGER.error("异常处理捕获非BusinessException:", exception);
+            jsonView.addObject("code", "99999");
+            jsonView.addObject("message", "系统异常");
+            jsonView.addObject("data", new HashMap<>());
+        } return jsonView;
+	}
+
+	private boolean isAjaxRequest(HttpServletRequest request, ResponseBody responseBodyAnn) {
+		return ("XMLHttpRequest".equals(request.getHeader("X-Requested-With")))
+				|| (responseBodyAnn != null);
 	}
 
 	public Properties getExceptionMappings() {

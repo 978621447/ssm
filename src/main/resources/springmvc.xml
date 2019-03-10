@@ -41,11 +41,11 @@
 
 	<bean id="handlerExceptionResolver"
 		  class="com.wjy.ssm.util.AnnotationHandlerMethodExceptionResolver">
-		<property name="defaultErrorView" value="/static/html/error/500.html" />
+		<property name="defaultErrorView" value="500" />
 		<property name="messageConverters" ref="mappingJacksonHttpMessageConverter" />
 		<property name="exceptionMappings">
 			<props>
-				<prop key="com.caxs.xapp.exception.BusinessException">/error/500</prop>
+				<prop key="com.wjy.ssm.util.BusinessException">/error/500</prop>
 			</props>
 		</property>
 	</bean>
